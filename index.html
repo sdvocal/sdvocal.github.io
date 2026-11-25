@@ -51,6 +51,7 @@ if (window.wcs) { wcs_do(); }
   --gold:#E6C24D;
   --gold-soft:#FFE89E;
   --gold-line:rgba(230,194,77,.5);
+  --gold-ink:#B08A1E;   /* 흰 배경 위 작은 골드 글자용(명암 확보) */
   --text:#111114;
   --muted:#5F6068;
   --muted-dark:rgba(255,255,255,.68);
@@ -778,6 +779,12 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
   .footer__bottom{flex-direction:column;align-items:flex-start}
   .mapbox__bar a{flex:1;justify-content:center;font-size:11.5px;padding:9px 8px;gap:5px}
 }
+/* ===== 밝은 배경 위 작은 골드 텍스트 =====
+   큰 헤드라인·어두운 섹션은 밝은 골드를 그대로 쓰고,
+   흰/아이보리 배경 위 10~17px 골드 라벨·아이콘만 살짝 진한 골드로 명암을 확보합니다. */
+.director .eyebrow,.curriculum .eyebrow,.consult .eyebrow,.location .eyebrow,
+.card__no,.card__tag,.field label .req,.consult__list svg{color:var(--gold-ink)}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .marquee__track{animation:none}
