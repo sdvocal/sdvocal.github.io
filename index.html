@@ -235,6 +235,8 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
   width:100%;height:100%;object-fit:cover;object-position:58% 42%;
   filter:saturate(1.08) contrast(1.03) brightness(1.05)
 }
+/* 모바일(≤900px) 전용 상단 화보 — PC(≥901px)에서는 표시되지 않습니다 */
+.hero__visual{display:none}
 .hero__bg::after{
   content:"";position:absolute;inset:0;
   background:
@@ -729,23 +731,28 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
   .mnav__list a{color:var(--ivory)}
   .mnav__list a small{color:var(--gold)}
   .mnav__meta{color:var(--muted-dark)}
+  /* ---- 모바일 첫 화면 : 상단 화보 + 하단 카피(분할형) ---- */
   .hero{
-    min-height:auto;display:flex;flex-direction:column;justify-content:flex-end;
-    background:var(--ink);color:var(--ivory);
-    padding-top:calc(var(--nav-h) + 46px);padding-bottom:0
+    min-height:auto;display:flex;flex-direction:column;justify-content:flex-start;
+    background:linear-gradient(180deg,#0E0F12 0%,#0A0B0E 68%,#0A0B0E 100%);
+    color:var(--ivory);
+    padding-top:var(--nav-h);padding-bottom:0
   }
-  .hero__inner{padding-bottom:clamp(28px,4vw,52px)}
+  .hero__visual{
+    display:block;position:relative;flex:none;width:100%;
+    height:clamp(250px,66vw,290px);
+    background:#0A0B0E url("assets/hero-mobile-editorial.jpg") center 20%/cover no-repeat
+  }
+  .hero__visual::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:64px;pointer-events:none;
+    background:linear-gradient(180deg,rgba(10,11,14,0) 0%,rgba(10,11,14,.55) 52%,#0A0B0E 100%)
+  }
+  .hero__inner{padding-top:clamp(20px,4.4vw,30px);padding-bottom:clamp(26px,4vw,36px)}
   .hero__copy{max-width:none}
-  .hero__bg{position:absolute;left:0;right:0;top:auto;bottom:0;inset:auto 0 0 0;height:min(62%,500px)}
-  .hero__bg img{object-position:58% 38%;filter:grayscale(.3) contrast(1.02) brightness(.72)}
-  .hero__bg::after{
-    background:
-      linear-gradient(to right,rgba(14,14,16,.55) 0%,rgba(14,14,16,.35) 60%,rgba(14,14,16,.5) 100%),
-      linear-gradient(to bottom,var(--ink) 0%,rgba(14,14,16,.92) 30%,rgba(14,14,16,.76) 64%,rgba(14,14,16,.9) 100%)
-  }
+  .hero__bg{display:none}
   .hero__eyebrow{
     font-size:9px;letter-spacing:.24em;color:var(--gold-soft);font-weight:600;
-    margin-bottom:clamp(26px,4vw,44px)
+    margin-bottom:clamp(14px,3.2vw,20px)
   }
   .hero__eyebrow::before{width:52px;height:1px;background:var(--gold-line)}
   .hero h1{font-size:clamp(1.2rem,6.5vw,3.5rem);line-height:1.34;max-width:none;color:var(--ivory)}
@@ -755,15 +762,15 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     font-weight:400
   }
   .hero__sub{
-    margin:clamp(24px,3vw,34px) 0 0;max-width:56ch;
-    color:rgba(255,255,255,.76);font-size:clamp(.95rem,1.15vw,1.05rem);line-height:1.85
+    margin:clamp(16px,3.2vw,24px) 0 0;max-width:56ch;
+    color:rgba(255,255,255,.76);font-size:clamp(.95rem,1.15vw,1.05rem);line-height:1.72
   }
-  .hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(30px,4vw,44px)}
+  .hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(22px,4.2vw,30px)}
   .hero__cta .btn{padding:16px 26px;font-size:14.5px}
   .hero .btn--light{--bg:transparent;--fg:#fff;--bd:rgba(255,255,255,.34)}
   .hero .btn--light:hover{--bg:transparent;--fg:var(--gold-soft);--bd:var(--gold)}
   .hero__meta{
-    display:flex;margin-top:32px;padding-top:22px;
+    display:flex;margin-top:26px;padding-top:18px;
     border-top:1px solid rgba(255,255,255,.14);
     color:rgba(255,255,255,.55);font-size:11.5px;letter-spacing:.14em
   }
@@ -807,7 +814,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
   .wrap{padding:0 20px}
   .section{padding:64px 0}
   .hero h1{max-width:none}
-  .hero__cta{flex-direction:column;align-items:stretch;gap:12px;margin-top:clamp(30px,4vw,44px)}
+  .hero__cta{flex-direction:column;align-items:stretch;gap:10px;margin-top:clamp(22px,4vw,28px)}
   .hero__cta .btn{width:100%;padding:16px 26px;font-size:14.5px}
   .stats__grid{grid-template-columns:1fr 1fr}
   .stat b{font-size:1.35rem}
@@ -965,9 +972,11 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
 <!-- ============================ HERO ============================ -->
 <main id="top">
 <section class="hero">
+  <!-- 모바일(≤900px) 전용 : 헤더 바로 아래 상단 화보 -->
+  <div class="hero__visual" aria-hidden="true"></div>
   <div class="hero__bg" aria-hidden="true">
     <picture>
-      <!-- PC(≥901px) : 블랙 & 골드 스튜디오 아티스트 이미지 / 모바일은 기존 이미지 그대로 -->
+      <!-- PC(≥901px) : 블랙 & 골드 스튜디오 아티스트 이미지 / 모바일은 위 상단 화보(hero__visual) 사용 -->
       <source media="(min-width:901px)" srcset="assets/hero-girlgroup-coaching.jpg" width="1693" height="929">
       <img src="assets/hero-studio.jpg" alt="" width="1920" height="549" fetchpriority="high">
     </picture>
