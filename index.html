@@ -261,6 +261,9 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 @supports not ((-webkit-background-clip:text) or (background-clip:text)){
   .hero h1 em{background:none;animation:none;-webkit-text-fill-color:currentColor}
 }
+@media (forced-colors:active){
+  .hero h1 em{background:none;animation:none;-webkit-text-fill-color:CanvasText}
+}
 .hero__sub{
   margin:clamp(24px,3vw,34px) 0 0;max-width:56ch;
   color:rgba(255,255,255,.76);font-size:clamp(.95rem,1.15vw,1.05rem);line-height:1.85
@@ -644,7 +647,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
 .hero .s4{left:44%;top:10%;width:9px;height:9px;animation-duration:4s;animation-delay:-3.1s}
 .hero .s5{left:92%;top:40%;width:11px;height:11px;animation-duration:4.9s;animation-delay:-1.9s}
 /* 채널(다크) 섹션 — 본문 좌우 여백과 상단 여백에만 */
-.showcase .s6{left:88%;top:6%;width:12px;height:12px;animation-duration:4.3s;animation-delay:-.9s}
+.showcase .s6{left:88%;top:15%;width:12px;height:12px;animation-duration:4.3s;animation-delay:-.9s}
 .showcase .s7{left:13%;top:24%;width:8px;height:8px;animation-duration:3.8s;animation-delay:-2.6s}
 .showcase .s8{left:93%;top:46%;width:14px;height:14px;animation-duration:5.1s;animation-delay:-1.4s}
 .showcase .s9{left:6%;top:66%;width:9px;height:9px;animation-duration:4.6s;animation-delay:-3.4s}
