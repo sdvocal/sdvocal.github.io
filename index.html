@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 밝은 테마 전용 선언 — 삼성 인터넷·크롬·엣지의 "강제 다크모드" 자동 색반전을 막습니다 -->
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
 <title>최원석의 SD보컬학원 | YG 메인 보컬 트레이너의 1:1 보컬 레슨</title>
 <meta name="description" content="빅뱅·2NE1·WINNER·iKON·BLACKPINK·AKMU의 보컬을 길러낸 최원석 원장이 상도역 앞 SD보컬학원에서 1:1 보컬 레슨을 진행합니다. 오디션·입시, 발성 교정, 축가·취미까지. 상담 02-822-6700.">
 <meta property="og:title" content="최원석의 SD보컬학원 | YG 메인 보컬 트레이너의 1:1 보컬 레슨">
@@ -38,15 +41,16 @@ if (window.wcs) { wcs_do(); }
    Palette: ink / pure white / gold
    ============================================================ */
 :root{
+  color-scheme:only light;
   --ink:#0A0A0C;
   --ink-2:#121216;
   --ink-3:#1A1A20;
   --ivory:#FFFFFF;
   --ivory-2:#F7F8FA;
   --stone:#F1F2F5;
-  --gold:#D4AF37;
-  --gold-soft:#F3DC96;
-  --gold-line:rgba(212,175,55,.48);
+  --gold:#E6C24D;
+  --gold-soft:#FFE89E;
+  --gold-line:rgba(230,194,77,.5);
   --text:#111114;
   --muted:#5F6068;
   --muted-dark:rgba(255,255,255,.68);
@@ -110,8 +114,13 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 }
 .btn svg{width:16px;height:16px;flex:none}
 .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px -18px rgba(0,0,0,.65)}
-.btn--gold{--bg:linear-gradient(135deg,#E8C766 0%,#D4AF37 55%,#C69C2B 100%);--fg:#0A0A0C;--bd:#D4AF37;position:relative;overflow:hidden;isolation:isolate}
-.btn--gold:hover{--bg:linear-gradient(135deg,#F1D883 0%,#E6C45A 55%,#D2A82F 100%);--bd:#E6C45A}
+.btn--gold{
+  --bg:linear-gradient(135deg,#FFE58A 0%,#E8C34A 55%,#D9B036 100%);--fg:#0A0A0C;--bd:#E8C34A;
+  background-color:#E8C34A;
+  position:relative;overflow:hidden;isolation:isolate;
+  forced-color-adjust:none
+}
+.btn--gold:hover{--bg:linear-gradient(135deg,#FFF2B0 0%,#F2D268 55%,#E4BF4A 100%);--bd:#F2D268;background-color:#F2D268;color:#0A0A0C}
 /* 골드 버튼 위를 천천히 지나가는 빛 스침 */
 .btn--gold::after{
   content:"";position:absolute;top:-60%;bottom:-60%;left:0;width:42%;z-index:1;
@@ -230,7 +239,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 }
 .hero__glow{
   position:absolute;z-index:0;top:-18%;right:-10%;width:min(720px,80vw);height:min(720px,80vw);
-  background:radial-gradient(circle,rgba(212,175,55,.18),rgba(212,175,55,0) 66%);
+  background:radial-gradient(circle,rgba(230,194,77,.18),rgba(230,194,77,0) 66%);
   pointer-events:none
 }
 .hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(28px,4vw,52px)}
@@ -246,8 +255,8 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 .hero h1 em{
   font-style:normal;display:block;
   font-family:var(--display);font-weight:400;letter-spacing:-.01em;
-  color:var(--gold-soft);
-  background-image:linear-gradient(110deg,#D4AF37 0%,#FFF1C1 42%,#D4AF37 65%,#F3DC96 100%);
+  color:#FFE58A;forced-color-adjust:none;
+  background-image:linear-gradient(110deg,#FFE58A 0%,#FFF6CC 42%,#E8C34A 65%,#FFE89E 100%);
   background-size:220% auto;background-position:0% 50%;background-repeat:no-repeat;
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -263,6 +272,16 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 }
 @media (forced-colors:active){
   .hero h1 em{background:none;animation:none;-webkit-text-fill-color:CanvasText}
+}
+/* ---------- 모바일 브라우저 "강제 다크모드" 자동 반전 방어 ----------
+   color-scheme:only light 로 자동 반전을 끄고,
+   브라우저가 다크 UA 스타일을 적용하는 경우에도 밝은 테마를 그대로 유지합니다. */
+@media (prefers-color-scheme: dark){
+  :root{color-scheme:only light}
+  html,body{background:#FFFFFF;color:#111114}
+  .field input,.field select,.field textarea{color:#111114;background-color:transparent}
+  .field input::placeholder,.field textarea::placeholder{color:#A9AAB0}
+  .btn--gold{background-color:#E8C34A;color:#0A0A0C}
 }
 .hero__sub{
   margin:clamp(24px,3vw,34px) 0 0;max-width:56ch;
@@ -347,7 +366,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 }
 .quote::before{
   content:"“";position:absolute;right:26px;top:2px;font-family:var(--display);font-size:132px;
-  color:rgba(212,175,55,.15);line-height:1
+  color:rgba(230,194,77,.15);line-height:1
 }
 .quote p{
   margin:0;font-family:var(--serif);font-size:clamp(1.02rem,1.7vw,1.35rem);line-height:1.75;
@@ -411,7 +430,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 .showcase{background:var(--ink-2);color:var(--ivory);position:relative;overflow:hidden}
 .showcase::before{
   content:"";position:absolute;left:-10%;bottom:-40%;width:60vw;height:60vw;
-  background:radial-gradient(circle,rgba(212,175,55,.13),transparent 62%);Pointer-events:none
+  background:radial-gradient(circle,rgba(230,194,77,.13),transparent 62%);Pointer-events:none
 }
 .showcase .eyebrow{color:var(--gold-soft)}
 .showcase .lede{color:rgba(255,255,255,.68)}
@@ -423,7 +442,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
   border:1px solid var(--line-dark);background:rgba(255,255,255,.02);
   transition:border-color .4s,background .4s,transform .4s var(--ease);position:relative;overflow:hidden
 }
-.channel:hover{border-color:var(--gold-line);background:rgba(212,175,55,.07);transform:translateY(-3px)}
+.channel:hover{border-color:var(--gold-line);background:rgba(230,194,77,.07);transform:translateY(-3px)}
 .channel__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:34px}
 .channel__icon{
   width:42px;height:42px;border:1px solid var(--line-dark);border-radius:50%;
@@ -525,7 +544,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 .info li{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(17,17,20,.14);font-size:14.5px;line-height:1.7}
 .info li b{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#111114;padding-top:4px;font-weight:700}
 .info li span{color:#35363C}
-.info li a{border-bottom:1px solid rgba(212,175,55,.5)}
+.info li a{border-bottom:1px solid rgba(230,194,77,.5)}
 .info li a:hover{color:var(--gold)}
 .mapbox{
   position:relative;background:#fff;border:1px solid rgba(17,17,20,.12);padding:10px;
@@ -630,7 +649,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
 .sparkles{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .sparkle{
   position:absolute;width:12px;height:12px;color:var(--gold-soft);
-  filter:drop-shadow(0 0 7px rgba(243,220,150,.6));
+  filter:drop-shadow(0 0 7px rgba(255,232,158,.6));
   animation:twinkle 4.4s ease-in-out infinite
 }
 @keyframes twinkle{
@@ -643,7 +662,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
 }
 /* 별 색 변주 — 골드 팔레트 안에서 밝게 / 깊게 */
 .sparkle--light{color:#FFF1C1;filter:drop-shadow(0 0 8px rgba(255,241,193,.62))}
-.sparkle--deep{color:#D4AF37;filter:drop-shadow(0 0 6px rgba(212,175,55,.55))}
+.sparkle--deep{color:#E6C24D;filter:drop-shadow(0 0 6px rgba(230,194,77,.55))}
 /* 히어로 — 어두운 여백에만 배치 */
 .hero .s1{left:63%;top:12%;width:13px;height:13px;animation-duration:4.6s;animation-delay:-1.2s}
 .hero .s2{left:84%;top:22%;width:8px;height:8px;animation-duration:3.6s;animation-delay:-2.4s}
