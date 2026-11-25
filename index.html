@@ -237,11 +237,11 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 .hero__bg::after{
   content:"";position:absolute;inset:0;
   background:
-    linear-gradient(90deg,rgba(251,248,241,.98) 0%,rgba(251,248,241,.95) 36%,rgba(251,248,241,.82) 52%,rgba(251,248,241,.36) 68%,rgba(251,248,241,.04) 100%),
-    linear-gradient(180deg,rgba(251,248,241,.55) 0%,rgba(251,248,241,.08) 24%,rgba(251,248,241,0) 56%,rgba(255,255,255,.45) 88%,#fff 100%)
+    linear-gradient(90deg,#FBF8F1 0%,#FBF8F1 33%,rgba(251,248,241,.97) 42%,rgba(251,248,241,.74) 52%,rgba(251,248,241,.30) 62%,rgba(251,248,241,.06) 72%,rgba(251,248,241,0) 82%),
+    linear-gradient(180deg,rgba(251,248,241,.40) 0%,rgba(251,248,241,0) 26%,rgba(251,248,241,0) 64%,rgba(255,255,255,.5) 90%,#fff 100%)
 }
 .hero__inner{position:relative;z-index:2;width:100%;max-width:1240px;margin:0 auto;padding:0 28px}
-.hero__copy{max-width:700px}
+.hero__copy{max-width:640px}
 .hero__eyebrow{
   display:flex;align-items:center;gap:12px;font-size:10.5px;letter-spacing:.28em;
   text-transform:uppercase;color:#8A6405;font-weight:700;margin-bottom:clamp(12px,1.6vw,18px)
@@ -283,7 +283,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
   .btn--gold{background-color:#E8C34A;color:#0A0A0C}
 }
 .hero__sub{
-  margin:clamp(12px,1.5vw,16px) 0 0;max-width:46ch;
+  margin:clamp(12px,1.5vw,16px) 0 0;max-width:44ch;
   color:#4C4D54;font-size:clamp(.93rem,1.05vw,1.02rem);line-height:1.72
 }
 .hero__cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(18px,2.2vw,26px)}
@@ -299,6 +299,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 
 /* ============================ DIRECTOR ============================ */
 .director{background:var(--ivory);overflow:hidden}
+.director.section{padding-top:clamp(56px,6vw,88px)}
 .director__grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(36px,6vw,86px);align-items:start}
 .portrait{position:relative}
 .portrait__frame{
@@ -714,7 +715,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
   .hero{min-height:0;display:block;padding-top:calc(var(--nav-h) + 84px);padding-bottom:30px}
   .hero__bg img{object-position:64% 36%}
   .hero__bg::after{
-    background:linear-gradient(180deg,rgba(251,248,241,.08) 0%,rgba(251,248,241,.36) 26%,rgba(251,248,241,.88) 44%,rgba(251,248,241,.99) 58%,#FFFFFF 100%)
+    background:linear-gradient(180deg,rgba(251,248,241,.16) 0%,rgba(251,248,241,.62) 22%,rgba(251,248,241,.93) 38%,rgba(251,248,241,.99) 52%,#FFFFFF 100%)
   }
   .hero__copy{max-width:none}
   .hero__eyebrow{font-size:9px;letter-spacing:.18em;margin-bottom:12px}
