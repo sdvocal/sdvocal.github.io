@@ -376,17 +376,6 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 .note p b{font-weight:600;color:var(--text)}
 .note__actions{display:flex;flex-wrap:wrap;gap:10px}
 
-/* process */
-.process{margin-top:clamp(56px,7vw,84px);background:var(--ink);color:var(--ivory);padding:clamp(34px,5vw,56px)}
-.process__head{margin-bottom:clamp(28px,3.4vw,40px)}
-.process__head .eyebrow{margin:0 0 14px;color:var(--gold-soft)}
-.process__head h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.16)}
-.step{background:var(--ink);padding:26px clamp(16px,2.4vw,28px) 30px}
-.step b{display:block;font-family:var(--display);font-size:13px;letter-spacing:.2em;color:var(--gold);margin-bottom:16px}
-.step h4{font-size:1.02rem;margin-bottom:10px;letter-spacing:-.01em;color:var(--ivory)}
-.step p{margin:0;font-size:13.4px;line-height:1.8;color:rgba(255,255,255,.62)}
-
 /* ============================ SHOWCASE ============================ */
 .showcase{background:var(--ink-2);color:var(--ivory);position:relative;overflow:hidden}
 .showcase::before{
@@ -645,7 +634,6 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
   .curriculum__head,.showcase__head{grid-template-columns:1fr;align-items:start}
   .curriculum__head .lede,.showcase__head .lede{justify-self:start}
   .twocol{grid-template-columns:1fr}
-  .steps{grid-template-columns:1fr}
   .channels{grid-template-columns:1fr}
   .float{display:none}
   .footer__top{grid-template-columns:1fr}
@@ -677,7 +665,6 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
   .quote::before{font-size:110px;right:10px}
   .footer__bottom{flex-direction:column;align-items:flex-start}
   .mapbox__bar a{flex:1;justify-content:center;font-size:11.5px;padding:9px 8px;gap:5px}
-  .process{padding:26px 20px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -942,30 +929,6 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
       <div class="note__actions">
         <a class="btn btn--dark btn--sm" href="#consult">30초 상담 신청</a>
         <a class="btn btn--light btn--sm" href="https://pf.kakao.com/_UXCNT/chat" target="_blank" rel="noopener">카카오톡 상담</a>
-      </div>
-    </div>
-
-    <div class="process reveal">
-      <div class="process__head">
-        <p class="eyebrow"><span class="num">Process</span>수업 진행</p>
-        <h3>상담에서 레슨까지, 세 단계</h3>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <b>STEP 01</b>
-          <h4>상담</h4>
-          <p>전화·카카오톡·신청 폼으로 지금 상황과 목표를 알려 주세요. 방문 상담도 가능합니다.</p>
-        </div>
-        <div class="step">
-          <b>STEP 02</b>
-          <h4>발성 진단 · 과정 설계</h4>
-          <p>실제로 노래를 들으며 발성과 음정을 확인하고, 목표까지의 과정과 횟수를 함께 정합니다.</p>
-        </div>
-        <div class="step">
-          <b>STEP 03</b>
-          <h4>1:1 레슨 · 피드백</h4>
-          <p>레슨마다 레코딩과 촬영으로 변화를 확인합니다. 매일 06:00–22:00, 365일 연습실을 사용할 수 있습니다.</p>
-        </div>
       </div>
     </div>
   </div>
