@@ -10,10 +10,11 @@
 <script>
   var p = new URLSearchParams(location.search);
   var w = +(p.get('w') || 1440), h = +(p.get('h') || 900), sy = +(p.get('sy') || 0), to = p.get('to') || '';
+  var page = p.get('src') || '/';
   var f = document.createElement('iframe');
   f.width = w; f.height = h; f.scrolling = 'no';
   f.style.width = w + 'px'; f.style.height = h + 'px';
-  f.src = '/?v=' + (p.get('v') || 'preview') + (to ? '#' + to : '');
+  f.src = page + '?v=' + (p.get('v') || 'preview') + (to ? '#' + to : '');
   f.addEventListener('load', function(){ if (sy) { setTimeout(function(){ try { f.contentWindow.scrollTo(0, sy); } catch(e){} }, 400); } });
   document.body.appendChild(f);
 </script>
