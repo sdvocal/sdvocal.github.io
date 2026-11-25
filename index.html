@@ -313,7 +313,8 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
   content:"";position:absolute;inset:6px;border:1px solid var(--gold-line);pointer-events:none;z-index:1
 }
 .portrait img{
-  width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 22%;
+  /* 가로형(3:2) 레슨 현장 사진 — 얼굴이 잘리지 않도록 4:3로 담습니다 */
+  width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 44%;
   mix-blend-mode:normal;filter:none
 }
 .portrait__cap{
@@ -1017,7 +1018,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
       <div class="portrait reveal">
         <span class="portrait__badge">Director</span>
         <div class="portrait__frame">
-          <img src="assets/instructor.jpeg" alt="최원석의 SD보컬학원 원장 최원석" loading="lazy">
+          <img src="assets/lesson-studio.jpg" alt="최원석 원장이 SD보컬학원 스튜디오에서 학생과 1:1 보컬 레슨을 진행하는 모습" width="1100" height="738" loading="lazy">
         </div>
         <p class="portrait__cap"><strong>최원석 · CHOI WONSEOK</strong><span>Vocal Director</span></p>
       </div>
