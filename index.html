@@ -44,9 +44,9 @@ if (window.wcs) { wcs_do(); }
   --ivory:#FFFFFF;
   --ivory-2:#F7F8FA;
   --stone:#F1F2F5;
-  --gold:#C8A45D;
-  --gold-soft:#E5CFA0;
-  --gold-line:rgba(200,164,93,.42);
+  --gold:#D4AF37;
+  --gold-soft:#F3DC96;
+  --gold-line:rgba(212,175,55,.48);
   --text:#111114;
   --muted:#5F6068;
   --muted-dark:rgba(255,255,255,.68);
@@ -110,8 +110,8 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 }
 .btn svg{width:16px;height:16px;flex:none}
 .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px -18px rgba(0,0,0,.65)}
-.btn--gold{--bg:var(--gold);--fg:#17140D;--bd:var(--gold);position:relative;overflow:hidden;isolation:isolate}
-.btn--gold:hover{--bg:#D4B478;--bd:#D4B478}
+.btn--gold{--bg:linear-gradient(135deg,#E8C766 0%,#D4AF37 55%,#C69C2B 100%);--fg:#0A0A0C;--bd:#D4AF37;position:relative;overflow:hidden;isolation:isolate}
+.btn--gold:hover{--bg:linear-gradient(135deg,#F1D883 0%,#E6C45A 55%,#D2A82F 100%);--bd:#E6C45A}
 /* 골드 버튼 위를 천천히 지나가는 빛 스침 */
 .btn--gold::after{
   content:"";position:absolute;top:-60%;bottom:-60%;left:0;width:42%;z-index:1;
@@ -230,7 +230,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 }
 .hero__glow{
   position:absolute;z-index:0;top:-18%;right:-10%;width:min(720px,80vw);height:min(720px,80vw);
-  background:radial-gradient(circle,rgba(200,164,93,.18),rgba(200,164,93,0) 66%);
+  background:radial-gradient(circle,rgba(212,175,55,.18),rgba(212,175,55,0) 66%);
   pointer-events:none
 }
 .hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(28px,4vw,52px)}
@@ -247,7 +247,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
   font-style:normal;display:block;
   font-family:var(--display);font-weight:400;letter-spacing:-.01em;
   color:var(--gold-soft);
-  background-image:linear-gradient(110deg,#C8A45D 0%,#F7E8C3 42%,#C8A45D 65%,#E5CFA0 100%);
+  background-image:linear-gradient(110deg,#D4AF37 0%,#FFF1C1 42%,#D4AF37 65%,#F3DC96 100%);
   background-size:220% auto;background-position:0% 50%;background-repeat:no-repeat;
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -291,7 +291,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 .portrait{position:relative}
 .portrait__frame{
   position:relative;background:#fff;border:1px solid rgba(17,17,20,.09);
-  padding:clamp(10px,1.6vw,18px);box-shadow:0 30px 70px -50px rgba(20,18,14,.6)
+  padding:clamp(10px,1.6vw,18px);box-shadow:0 30px 70px -50px rgba(10,10,12,.6)
 }
 .portrait__frame::before{
   content:"";position:absolute;inset:6px;border:1px solid var(--gold-line);pointer-events:none;z-index:1
@@ -347,7 +347,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 }
 .quote::before{
   content:"“";position:absolute;right:26px;top:2px;font-family:var(--display);font-size:132px;
-  color:rgba(200,164,93,.15);line-height:1
+  color:rgba(212,175,55,.15);line-height:1
 }
 .quote p{
   margin:0;font-family:var(--serif);font-size:clamp(1.02rem,1.7vw,1.35rem);line-height:1.75;
@@ -411,7 +411,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 .showcase{background:var(--ink-2);color:var(--ivory);position:relative;overflow:hidden}
 .showcase::before{
   content:"";position:absolute;left:-10%;bottom:-40%;width:60vw;height:60vw;
-  background:radial-gradient(circle,rgba(200,164,93,.13),transparent 62%);Pointer-events:none
+  background:radial-gradient(circle,rgba(212,175,55,.13),transparent 62%);Pointer-events:none
 }
 .showcase .eyebrow{color:var(--gold-soft)}
 .showcase .lede{color:rgba(255,255,255,.68)}
@@ -423,7 +423,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
   border:1px solid var(--line-dark);background:rgba(255,255,255,.02);
   transition:border-color .4s,background .4s,transform .4s var(--ease);position:relative;overflow:hidden
 }
-.channel:hover{border-color:var(--gold-line);background:rgba(200,164,93,.07);transform:translateY(-3px)}
+.channel:hover{border-color:var(--gold-line);background:rgba(212,175,55,.07);transform:translateY(-3px)}
 .channel__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:34px}
 .channel__icon{
   width:42px;height:42px;border:1px solid var(--line-dark);border-radius:50%;
@@ -458,7 +458,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 
 .form{
   background:#fff;border:1px solid var(--line);padding:clamp(26px,3.4vw,44px);
-  box-shadow:0 40px 90px -70px rgba(20,18,14,.8);position:relative
+  box-shadow:0 40px 90px -70px rgba(10,10,12,.8);position:relative
 }
 .form__head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:26px}
 .form__head h3{font-size:1.15rem}
@@ -483,8 +483,8 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 .field input:focus,.field select:focus,.field textarea:focus{
   outline:none;border-bottom-color:var(--gold);box-shadow:0 1px 0 0 var(--gold)
 }
-.field__err{display:none;margin-top:7px;font-size:12px;color:#B4472F;letter-spacing:0}
-.field.has-err input,.field.has-err select,.field.has-err textarea{border-bottom-color:#C0523A}
+.field__err{display:none;margin-top:7px;font-size:12px;color:#C21E1E;letter-spacing:0}
+.field.has-err input,.field.has-err select,.field.has-err textarea{border-bottom-color:#D62B2B}
 .field.has-err .field__err{display:block}
 .field--row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 
@@ -498,8 +498,8 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 .consent button{
   font-size:12px;color:var(--muted);border-bottom:1px solid rgba(17,17,20,.2);padding:0 0 1px;margin-left:4px
 }
-.consent.has-err{color:#B4472F}
-.consent.has-err input{border-color:#C0523A}
+.consent.has-err{color:#C21E1E}
+.consent.has-err input{border-color:#D62B2B}
 .form__foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
 .form__foot small{font-size:11.5px;color:#96979E;line-height:1.6;flex:1;min-width:160px}
 
@@ -523,13 +523,13 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 .location .h2{margin-bottom:28px}
 .info{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid rgba(17,17,20,.14)}
 .info li{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(17,17,20,.14);font-size:14.5px;line-height:1.7}
-.info li b{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#8A7245;padding-top:4px;font-weight:700}
+.info li b{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#111114;padding-top:4px;font-weight:700}
 .info li span{color:#35363C}
-.info li a{border-bottom:1px solid rgba(200,164,93,.5)}
+.info li a{border-bottom:1px solid rgba(212,175,55,.5)}
 .info li a:hover{color:var(--gold)}
 .mapbox{
   position:relative;background:#fff;border:1px solid rgba(17,17,20,.12);padding:10px;
-  box-shadow:0 30px 70px -60px rgba(20,18,14,.8);display:flex;flex-direction:column
+  box-shadow:0 30px 70px -60px rgba(10,10,12,.8);display:flex;flex-direction:column
 }
 .mapbox__frame{position:relative;width:100%;aspect-ratio:16/11;background:#E9EBEF;overflow:hidden}
 .mapbox__map{display:block;position:absolute;inset:0}
@@ -601,7 +601,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
 }
 .float a:hover{transform:translateY(-2px)}
 .float svg{width:17px;height:17px;flex:none}
-.float__kakao{background:#FEE500;color:#3C1E1E}
+.float__kakao{background:#FEE500;color:#111114}
 .float__call{background:var(--ink);color:#fff;border:1px solid rgba(255,255,255,.14)}
 
 /* mobile bottom bar */
@@ -616,7 +616,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
   border-radius:2px
 }
 .mbar svg{width:16px;height:16px}
-.mbar__kakao{background:#FEE500;color:#3C1E1E}
+.mbar__kakao{background:#FEE500;color:#111114}
 .mbar__call{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.22)}
 
 /* ============================ REVEAL ============================ */
@@ -629,7 +629,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
 .sparkles{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .sparkle{
   position:absolute;width:12px;height:12px;color:var(--gold-soft);
-  filter:drop-shadow(0 0 7px rgba(229,207,160,.55));
+  filter:drop-shadow(0 0 7px rgba(243,220,150,.6));
   animation:twinkle 4.4s ease-in-out infinite
 }
 @keyframes twinkle{
