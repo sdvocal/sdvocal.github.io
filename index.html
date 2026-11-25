@@ -835,6 +835,11 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
   .footer__bottom{flex-direction:column;align-items:flex-start}
   .mapbox__bar a{flex:1;justify-content:center;font-size:11.5px;padding:9px 6px;gap:5px}
 }
+/* 좁은 폭(360px대) 폰에서도 화보·태그·버튼 3개가 첫 화면에 들어오도록 비율만 소폭 조정 */
+@media (max-width:375px){
+  .hero__visual{height:clamp(186px,52vw,224px)}
+  .hero__eyebrow{font-size:8.5px;letter-spacing:.1em}
+}
 /* ============================================================
    PC(≥901px) 전용 — 상단 블랙 & 골드 / 배너 아래는 화이트
    ≤900px 모바일 스타일은 위 블록을 그대로 유지합니다.
