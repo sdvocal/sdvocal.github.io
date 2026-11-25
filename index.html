@@ -522,6 +522,13 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 .consent.has-err input{border-color:#D62B2B}
 .form__foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
 .form__foot small{font-size:11.5px;color:#96979E;line-height:1.6;flex:1;min-width:160px}
+.btn[disabled]{opacity:.55;cursor:progress;transform:none !important;box-shadow:none !important}
+.form__fail{
+  margin:16px 0 0;padding:11px 14px;font-size:12.5px;line-height:1.75;color:#B31F1F;
+  background:#FDF4F4;border-left:2px solid #D62B2B
+}
+.form__fail[hidden]{display:none}
+.form__fail a{color:inherit;border-bottom:1px solid currentColor}
 
 .success{display:none;text-align:center;padding:18px 6px 6px}
 .success__mark{
@@ -1201,6 +1208,11 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
               <small>남겨 주신 정보는 상담 안내에만 사용됩니다.</small>
             </div>
           </form>
+          <p class="form__fail" id="consultFail" role="alert" hidden>
+            전송에 실패했습니다. 잠시 후 다시 시도하시거나
+            <a href="tel:028226700">02-822-6700</a> 또는
+            <a href="https://pf.kakao.com/_UXCNT/chat" target="_blank" rel="noopener">카카오톡 상담</a>으로 연락해 주세요.
+          </p>
         </div>
 
         <div class="success" role="status" aria-live="polite">
@@ -1210,7 +1222,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
           <h3>상담 신청이 접수되었습니다</h3>
           <p>확인 후 순차적으로 연락드리겠습니다.<br>급하신 경우 <strong style="color:var(--text)">02-822-6700</strong>으로 전화 주세요.</p>
           <a class="btn btn--dark btn--sm" href="https://pf.kakao.com/_UXCNT/chat" target="_blank" rel="noopener">카카오톡으로 바로 상담</a>
-          <p class="success__note">※ 시안 화면입니다. 실제 배포 시 입력 내용은 지정된 메일 또는 알림톡으로 전달되도록 연동됩니다.</p>
+          <p class="success__note">문의 내용은 학원 대표 메일(cd3000xl@naver.com)로 전달되며, 상담 안내 외에는 사용되지 않습니다.</p>
         </div>
       </div>
     </div>
@@ -1227,6 +1239,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
         <ul class="info reveal d2">
           <li><b>Address</b><span>서울특별시 동작구 양녕로 253-8<br>SD실용음악학원 (상도역 2번 출구 앞)</span></li>
           <li><b>Phone</b><span><a href="tel:028226700">02-822-6700</a></span></li>
+          <li><b>Email</b><span><a href="mailto:cd3000xl@naver.com">cd3000xl@naver.com</a></span></li>
           <li><b>Hours</b><span>매일 10:00 – 22:00<br>365일 연습실 사용 가능</span></li>
           <li><b>Parking</b><span>주차 가능</span></li>
           <li><b>Subway</b><span>7호선 상도역 2번 출구 도보 1분</span></li>
@@ -1286,6 +1299,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
           <li>서울특별시 동작구 양녕로 253-8</li>
           <li>7호선 상도역 2번 출구 앞</li>
           <li><a href="tel:028226700">T. 02-822-6700</a></li>
+          <li><a href="mailto:cd3000xl@naver.com">cd3000xl@naver.com</a></li>
           <li>매일 10:00 – 22:00</li>
         </ul>
       </div>
@@ -1355,9 +1369,13 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     <h4>동의 거부 권리</h4>
     <ul>
       <li>동의를 거부할 수 있으며, 이 경우 상담 신청이 제한됩니다.</li>
-      <li>전화(02-822-6700) 또는 카카오톡으로도 상담하실 수 있습니다.</li>
+      <li>전화(02-822-6700), 이메일(cd3000xl@naver.com) 또는 카카오톡으로도 상담하실 수 있습니다.</li>
     </ul>
-    <p style="margin-top:18px;color:#888A91;font-size:12px">※ 본 내용은 시안용 초안이며, 실제 배포 전 학원의 개인정보처리방침에 맞춰 확정해야 합니다.</p>
+    <h4>전달 경로</h4>
+    <ul>
+      <li>상담 신청 내용은 메일 발송 대행 서비스(FormSubmit)를 거쳐 학원 대표 메일(cd3000xl@naver.com)로 전달됩니다.</li>
+    </ul>
+    <p style="margin-top:18px;color:#888A91;font-size:12px">※ 문의: 02-822-6700 · cd3000xl@naver.com</p>
   </div>
 </dialog>
 
@@ -1436,8 +1454,15 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
   var card = document.getElementById('formCard');
   var nameEl = document.getElementById('name');
   var phoneEl = document.getElementById('phone');
+  var courseEl = document.getElementById('course');
+  var messageEl = document.getElementById('message');
   var consentEl = document.getElementById('consent');
   var consentWrap = document.getElementById('consentWrap');
+  var submitBtn = form.querySelector('button[type="submit"]');
+  var failEl = document.getElementById('consultFail');
+  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/cd3000xl@naver.com';
+  var btnLabel = submitBtn.innerHTML;
+  var sending = false;
 
   function fieldOf(el){ return el.closest('.field'); }
   function clearErr(el){
@@ -1449,8 +1474,54 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     el.addEventListener('change', function(){ clearErr(el); });
   });
 
+  function setSending(on){
+    sending = on;
+    submitBtn.disabled = on;
+    submitBtn.innerHTML = on ? '보내는 중… ' : btnLabel;
+  }
+
+  function showFail(){
+    failEl.hidden = false;
+    failEl.scrollIntoView({behavior: reduce ? 'auto':'smooth', block:'center'});
+  }
+
+  function sendConsult(){
+    var payload = {
+      name: nameEl.value.trim(),
+      phone: phoneEl.value.trim(),
+      course: courseEl.value,
+      message: messageEl.value.trim(),
+      '개인정보 동의': '동의함',
+      '접수 경로': '홈페이지 상담 신청폼',
+      _subject: '[SD보컬학원] 홈페이지 신규 상담 신청',
+      _template: 'table',
+      _captcha: 'false',
+      _honey: ''
+    };
+    setSending(true);
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json', 'Accept':'application/json'},
+      body: JSON.stringify(payload)
+    }).then(function(res){
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json().catch(function(){ return {}; });
+    }).then(function(data){
+      if (data && (data.success === false || data.success === 'false')) throw new Error('rejected');
+      setSending(false);
+      trackLeadConversion();
+      card.classList.add('is-done');
+      card.scrollIntoView({behavior: reduce ? 'auto':'smooth', block:'center'});
+    }).catch(function(){
+      setSending(false);
+      showFail();
+    });
+  }
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    if (sending) return;
+    failEl.hidden = true;
     var ok = true;
     if (!nameEl.value.trim()) { fieldOf(nameEl).classList.add('has-err'); ok = false; }
     var digits = phoneEl.value.replace(/[^0-9]/g,'');
@@ -1461,9 +1532,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
       if (first){ first.scrollIntoView({behavior: reduce ? 'auto':'smooth', block:'center'}); }
       return;
     }
-    trackLeadConversion();          /* 실서버: 네이버 lead 전환 전송 */
-    card.classList.add('is-done');
-    card.scrollIntoView({behavior: reduce ? 'auto':'smooth', block:'center'});
+    sendConsult();
   });
 
   /* 네이버 전환 추적(lead) — 실서버에서 wcs 스크립트가 로드된 경우에만 동작 */
