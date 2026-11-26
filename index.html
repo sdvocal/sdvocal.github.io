@@ -2007,8 +2007,9 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     bdResetRead();
 
     bdMeta.appendChild(bdEl('span', 'bmeta__title', it.title));
-    var done = it.status === '답변완료';
-    bdMeta.appendChild(bdEl('span', 'post__status ' + (done ? 'post__status--done' : 'post__status--wait'), done ? '답변완료' : '답변대기'));
+    var badge = bdEl('span', '', '');
+    badge.id = 'readStatus';
+    bdMeta.appendChild(badge);
     bdMeta.appendChild(bdEl('span', null, '작성자 ' + it.author));
     bdMeta.appendChild(bdEl('span', null, bdDate(it.created_at)));
 
@@ -2018,6 +2019,13 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     } else {
       setTimeout(function () { try { bdPassEl.focus(); } catch (e) {} }, 60);
     }
+  }
+
+  function bdMetaStatus(done) {
+    var badge = document.getElementById('readStatus');
+    if (!badge) return;
+    badge.className = 'post__status ' + (done ? 'post__status--done' : 'post__status--wait');
+    badge.textContent = done ? '답변완료' : '답변대기';
   }
 
   function bdFillRead(res) {
@@ -2035,6 +2043,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     bdAdminAnswer.hidden = !admin;
     bdAdminSave.hidden = !admin;
     if (admin) document.getElementById('aAnswer').value = res.answer || '';
+    bdMetaStatus(hasAnswer);
     /* 목록 배지 갱신 */
     if (bdCurrent) {
       bdCurrent.status = hasAnswer ? '답변완료' : '답변대기';
@@ -2225,6 +2234,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
         bdAnswerText.textContent = answer;
         bdAnswerWrap.hidden = false;
         bdPending.hidden = true;
+        bdMetaStatus(true);
         bdAnsweredAt.textContent = res.answered_at ? '답변일 ' + res.answered_at.slice(0, 16).replace(/-/g, '.') : '';
         bdLoadList();
       } else {
