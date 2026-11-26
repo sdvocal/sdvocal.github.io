@@ -77,6 +77,16 @@ function getSheet() {
     sh.setFrozenRows(1);
     sh.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
   }
+  /* 날짜 열은 텍스트로 고정 (시트가 날짜 값으로 바꾸지 않도록) — 최초 1회만 */
+  var props = PropertiesService.getScriptProperties();
+  if (!props.getProperty('FMT_DONE')) {
+    var rows = sh.getMaxRows() - 1;
+    if (rows > 0) {
+      sh.getRange(2, 2, rows, 1).setNumberFormat('@');
+      sh.getRange(2, 9, rows, 1).setNumberFormat('@');
+    }
+    props.setProperty('FMT_DONE', '1');
+  }
   return sh;
 }
 
@@ -92,14 +102,14 @@ function readRows() {
     out.push({
       row: i + 2,
       id: String(r[0]),
-      created_at: String(r[1]),
+      created_at: asText(r[1]),
       author: String(r[2]),
       title: String(r[3]),
       content: String(r[4]),
       password_hash: String(r[5]),
       status: String(r[6]),
       answer: String(r[7]),
-      answered_at: String(r[8]),
+      answered_at: asText(r[8]),
       deleted: r[9] === true || String(r[9]).toUpperCase() === 'TRUE'
     });
   }
@@ -110,6 +120,12 @@ function readRows() {
 
 function now() {
   return Utilities.formatDate(new Date(), 'Asia/Seoul', 'yyyy-MM-dd HH:mm:ss');
+}
+
+/* 시트가 날짜로 해석한 값을 문자열로 되돌립니다 */
+function asText(v) {
+  if (v instanceof Date) return Utilities.formatDate(v, 'Asia/Seoul', 'yyyy-MM-dd HH:mm:ss');
+  return String(v == null ? '' : v);
 }
 
 function clean(v, max) {
