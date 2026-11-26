@@ -507,6 +507,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 .field.has-err input,.field.has-err select,.field.has-err textarea{border-bottom-color:#D62B2B}
 .field.has-err .field__err{display:block}
 .field--row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.consult .field textarea{min-height:112px}
 
 .consent{display:flex;gap:12px;align-items:flex-start;margin:6px 0 24px;font-size:12.8px;line-height:1.7;color:#55565C}
 .consent input{appearance:none;width:18px;height:18px;border:1px solid rgba(17,17,20,.34);border-radius:2px;flex:none;margin-top:2px;padding:0;cursor:pointer;transition:background .2s,border-color .2s;position:relative}
@@ -942,7 +943,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
       <a class="nav__link" href="#location">Location</a>
     </nav>
     <div class="nav__cta">
-      <a class="btn btn--gold btn--sm" href="#consult">상담 신청</a>
+      <a class="btn btn--gold btn--sm" href="#consult">간편 문의</a>
     </div>
     <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mnav">
       <span></span><span></span><span></span>
@@ -955,7 +956,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     <li><a href="#director"><small>01</small>Director · 원장 소개</a></li>
     <li><a href="#curriculum"><small>02</small>Curriculum · 커리큘럼</a></li>
     <li><a href="#showcase"><small>03</small>Channel · 채널</a></li>
-    <li><a href="#consult"><small>04</small>Consultation · 상담 신청</a></li>
+    <li><a href="#consult"><small>04</small>Consultation · 간편 문의</a></li>
     <li><a href="#location"><small>05</small>Location · 오시는 길</a></li>
   </ul>
   <div class="mnav__foot">
@@ -1005,7 +1006,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
         </a>
         <a class="btn btn--light" href="#consult">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h9l4 4v12H5z"/><path d="M8 12h7M8 16h5M14 4v4h4"/></svg>
-          30초 수강 상담 신청
+          간편 문의하기
         </a>
       </div>
       <div class="hero__meta">
@@ -1182,7 +1183,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
       <p><b>수강료와 세부 커리큘럼은 1:1 상담에서 안내해 드립니다.</b><br>
         과정·횟수·목표에 따라 달라지기 때문에, 먼저 듣고 설계하는 편이 정확합니다. 부담 없이 문의해 주세요.</p>
       <div class="note__actions">
-        <a class="btn btn--dark btn--sm" href="#consult">30초 상담 신청</a>
+        <a class="btn btn--dark btn--sm" href="#consult">간편 문의하기</a>
         <a class="btn btn--light btn--sm" href="https://pf.kakao.com/_UXCNT/chat" target="_blank" rel="noopener">카카오톡 상담</a>
       </div>
     </div>
@@ -1249,13 +1250,13 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     <div class="consult__grid">
       <div class="consult__copy">
         <p class="eyebrow reveal"><span class="num">04</span>Consultation</p>
-        <h2 class="h2 reveal d1">30초면 충분합니다.<br><em>나머지는 상담에서.</em></h2>
+        <h2 class="h2 reveal d1">가벼운 1:1 질문,<br><em>여기서 바로.</em></h2>
         <p class="lede reveal d2">
-          이름과 연락처만 남겨 주세요. 확인 후 원장 또는 담당 강사가 직접 연락드립니다.
-          수강료와 커리큘럼은 상담에서 자세히 안내해 드립니다.
+          이름 없이도 괜찮아요. 궁금한 점만 적으시면 원장 또는 담당 강사가 편한 채널로 답해 드립니다.
+          수강료와 커리큘럼도 부담 없이 물어보세요.
         </p>
         <ul class="consult__list reveal d2">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>목표에 맞춘 1:1 과정 설계</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>수강료·체험 레슨, 무엇이든 질문</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>카카오톡·전화 상담 모두 가능</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>평일·주말 매일 10:00 – 22:00</li>
         </ul>
@@ -1268,55 +1269,35 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
 
       <div class="form reveal d1" id="formCard">
         <div class="form__head">
-          <h3>수강 상담 신청</h3>
-          <span>30 sec</span>
+          <h3>가벼운 1:1 질문</h3>
+          <span>간편 문의</span>
         </div>
         <div class="form__body">
           <form id="consultForm" novalidate>
-            <div class="field--row">
-              <div class="field">
-                <label for="name">이름<span class="req">*</span></label>
-                <input type="text" id="name" name="name" placeholder="홍길동" autocomplete="name">
-                <p class="field__err" id="err-name">이름을 입력해 주세요.</p>
-              </div>
-              <div class="field">
-                <label for="phone">연락처<span class="req">*</span></label>
-                <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" autocomplete="tel" inputmode="tel">
-                <p class="field__err" id="err-phone">연락 가능한 번호를 정확히 입력해 주세요.</p>
-              </div>
+            <div class="field">
+              <label for="contact">답변받을 연락처 또는 카톡 ID<span class="req">*</span></label>
+              <input type="text" id="contact" name="contact" placeholder="전화번호 또는 카카오톡 ID" autocomplete="tel">
+              <p class="field__err" id="err-contact">연락처나 카톡 ID를 정확히 입력해 주세요.</p>
             </div>
             <div class="field">
-              <label for="course">희망 과정</label>
-              <select id="course" name="course">
-                <option value="">선택해 주세요 (선택 사항)</option>
-                <option>1:1 개인 보컬</option>
-                <option>발성 교정 · 음치 탈출</option>
-                <option>오디션 · 입시</option>
-                <option>축가 · CCM · 취미</option>
-                <option>레코딩 · 콘텐츠</option>
-                <option>기타 · 미디 작곡</option>
-                <option>상담 후 결정하고 싶어요</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="message">문의 내용</label>
-              <textarea id="message" name="message" placeholder="예) 오디션 준비 중이고, 고음이 불안정합니다. 주 1회 저녁 수업을 생각하고 있습니다."></textarea>
+              <label for="message">궁금한 점</label>
+              <textarea id="message" name="message" placeholder="수강료, 초보 가능 여부, 체험 레슨 시간 등 편하게 적어주세요"></textarea>
             </div>
 
             <div class="consent" id="consentWrap">
               <input type="checkbox" id="consent" name="consent">
               <label for="consent">
-                개인정보 수집 및 이용에 동의합니다. (상담 목적, 이름·연락처·문의 내용)
+                답변 안내를 위한 연락처·문의 내용 이용에 동의합니다.
                 <button type="button" id="openPrivacy">전문 보기</button>
               </label>
             </div>
 
             <div class="form__foot">
               <button class="btn btn--gold" type="submit">
-                상담 신청 보내기
+                문의 보내기
                 <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
               </button>
-              <small>남겨 주신 정보는 상담 안내에만 사용됩니다.</small>
+              <small>남겨 주신 정보는 답변 안내에만 사용됩니다.</small>
             </div>
           </form>
           <p class="form__fail" id="consultFail" role="alert" hidden>
@@ -1330,10 +1311,10 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
           <div class="success__mark">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
           </div>
-          <h3>상담 신청이 접수되었습니다</h3>
-          <p>확인 후 순차적으로 연락드리겠습니다.<br>급하신 경우 <strong style="color:var(--text)">02-822-6700</strong>으로 전화 주세요.</p>
+          <h3>문의가 접수되었습니다</h3>
+          <p>확인 후 편한 채널로 답해 드리겠습니다.<br>급하신 경우 <strong style="color:var(--text)">02-822-6700</strong>으로 전화 주세요.</p>
           <a class="btn btn--dark btn--sm" href="https://pf.kakao.com/_UXCNT/chat" target="_blank" rel="noopener">카카오톡으로 바로 상담</a>
-          <p class="success__note">문의 내용은 학원 대표 메일(cd3000xl@naver.com)로 전달되며, 상담 안내 외에는 사용되지 않습니다.</p>
+          <p class="success__note">문의 내용은 학원 대표 메일(cd3000xl@naver.com)로 전달되며, 답변 안내 외에는 사용되지 않습니다.</p>
         </div>
       </div>
     </div>
@@ -1463,15 +1444,15 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     <button type="button" id="closePrivacy" aria-label="닫기">×</button>
   </div>
   <div class="privacy__body">
-    <p>최원석의 SD보컬학원(이하 “학원”)은 수강 상담을 위해 아래와 같이 최소한의 개인정보를 수집·이용합니다.</p>
+    <p>최원석의 SD보컬학원(이하 “학원”)은 문의 답변을 위해 아래와 같이 최소한의 개인정보를 수집·이용합니다.</p>
     <h4>수집 항목</h4>
     <ul>
-      <li>필수: 이름, 연락처</li>
-      <li>선택: 희망 과정, 문의 내용</li>
+      <li>필수: 연락처 또는 카카오톡 ID</li>
+      <li>선택: 문의 내용</li>
     </ul>
     <h4>수집·이용 목적</h4>
     <ul>
-      <li>수강 상담 및 안내, 상담 일정 조율</li>
+      <li>수강 관련 문의 답변, 상담 일정 조율</li>
     </ul>
     <h4>보유·이용 기간</h4>
     <ul>
@@ -1479,12 +1460,12 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     </ul>
     <h4>동의 거부 권리</h4>
     <ul>
-      <li>동의를 거부할 수 있으며, 이 경우 상담 신청이 제한됩니다.</li>
+      <li>동의를 거부할 수 있으며, 이 경우 문의 접수가 제한됩니다.</li>
       <li>전화(02-822-6700), 이메일(cd3000xl@naver.com) 또는 카카오톡으로도 상담하실 수 있습니다.</li>
     </ul>
     <h4>전달 경로</h4>
     <ul>
-      <li>상담 신청 내용은 메일 발송 대행 서비스(FormSubmit)를 거쳐 학원 대표 메일(cd3000xl@naver.com)로 전달됩니다.</li>
+      <li>문의 내용은 메일 발송 대행 서비스(FormSubmit)를 거쳐 학원 대표 메일(cd3000xl@naver.com)로 전달됩니다.</li>
     </ul>
     <p style="margin-top:18px;color:#888A91;font-size:12px">※ 문의: 02-822-6700 · cd3000xl@naver.com</p>
   </div>
@@ -1563,9 +1544,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
   /* ---------- form ---------- */
   var form = document.getElementById('consultForm');
   var card = document.getElementById('formCard');
-  var nameEl = document.getElementById('name');
-  var phoneEl = document.getElementById('phone');
-  var courseEl = document.getElementById('course');
+  var contactEl = document.getElementById('contact');
   var messageEl = document.getElementById('message');
   var consentEl = document.getElementById('consent');
   var consentWrap = document.getElementById('consentWrap');
@@ -1580,10 +1559,19 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     var f = fieldOf(el); if (f) f.classList.remove('has-err');
     if (el === consentEl) consentWrap.classList.remove('has-err');
   }
-  [nameEl, phoneEl, consentEl].forEach(function(el){
+  [contactEl, consentEl].forEach(function(el){
     el.addEventListener('input', function(){ clearErr(el); });
     el.addEventListener('change', function(){ clearErr(el); });
   });
+
+  /* 연락처(전화번호) 또는 카카오톡 ID 모두 허용 */
+  function isValidContact(v){
+    if (/^[+0-9\s().-]+$/.test(v)){
+      var digits = v.replace(/[^0-9]/g,'');
+      return digits.length >= 9 && digits.length <= 11;
+    }
+    return /^[A-Za-z0-9._-]{3,}$/.test(v.replace(/^@/,''));
+  }
 
   function setSending(on){
     sending = on;
@@ -1598,13 +1586,11 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
 
   function sendConsult(){
     var payload = {
-      name: nameEl.value.trim(),
-      phone: phoneEl.value.trim(),
-      course: courseEl.value,
+      contact: contactEl.value.trim(),
       message: messageEl.value.trim(),
       '개인정보 동의': '동의함',
-      '접수 경로': '홈페이지 상담 신청폼',
-      _subject: '[SD보컬학원] 홈페이지 신규 상담 신청',
+      '접수 경로': '홈페이지 간편 문의',
+      _subject: '[SD보컬학원] 홈페이지 간편 문의',
       _template: 'table',
       _captcha: 'false',
       _honey: ''
@@ -1634,9 +1620,8 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     if (sending) return;
     failEl.hidden = true;
     var ok = true;
-    if (!nameEl.value.trim()) { fieldOf(nameEl).classList.add('has-err'); ok = false; }
-    var digits = phoneEl.value.replace(/[^0-9]/g,'');
-    if (digits.length < 9 || digits.length > 11) { fieldOf(phoneEl).classList.add('has-err'); ok = false; }
+    if (!contactEl.value.trim()) { fieldOf(contactEl).classList.add('has-err'); ok = false; }
+    else if (!isValidContact(contactEl.value.trim())) { fieldOf(contactEl).classList.add('has-err'); ok = false; }
     if (!consentEl.checked) { consentWrap.classList.add('has-err'); ok = false; }
     if (!ok){
       var first = card.querySelector('.has-err');
