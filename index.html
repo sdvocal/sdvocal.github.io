@@ -2306,6 +2306,8 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
      덮어씁니다. 그래서 wcslog.js 는 한 번만 불러오고(wcs.naver.net 과
      wcs.pstatic.net 은 같은 파일입니다), 계정을 바꿔 가며 wcs_do() 를
      호출합니다. 상담 폼 전환 전송도 같은 방식으로 계정을 잠시 바꿔 보냅니다.
+     전환추적 계정으로 wa 를 맞춘 직후에는 wcs.inflow("sdmusic.co.kr") 로
+     광고 클릭 정보를 저장합니다(전환 귀속 필수).
      ============================================================ -->
 <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 <script type="text/javascript">
@@ -2315,6 +2317,11 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
 
   /* 1) 네이버 검색광고 전환추적 계정 페이지뷰 */
   window.wcs_add["wa"] = "s_1c5b081705c0";
+
+  /* 1-1) 유입(광고 클릭 정보 ci·tr·et…) 저장 — 전환이 광고에 귀속되도록
+     하는 공식 필수 호출. wcs_add["wa"] 설정 직후, wcs_do() 직전에 둡니다. */
+  if (typeof window.wcs.inflow === 'function') { window.wcs.inflow("sdmusic.co.kr"); }
+
   window.wcs_do();
 
   /* 2) 네이버 애널리틱스 계정 페이지뷰 */
