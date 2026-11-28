@@ -522,13 +522,28 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.0
 }
 .board__write-head span svg{width:11px;height:11px;flex:none}
 
-.consult__direct{
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:10px 18px;
-  margin-top:20px;font-size:13.5px;color:var(--muted)
+/* 상담 기본 제공 혜택 */
+.perks__label{
+  margin:clamp(24px,3vw,32px) 0 10px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold-ink);font-weight:700
 }
-.consult__direct span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#9A9BA2;font-weight:700}
-.consult__direct a{color:var(--text);border-bottom:1px solid var(--gold-line);padding-bottom:2px}
-.consult__direct a:hover{color:var(--gold-ink)}
+.perks{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);
+  margin:0 0 clamp(24px,3.2vw,36px)
+}
+.perk{background:#fff;padding:20px clamp(16px,2.2vw,24px) 22px}
+.perk b{display:block;font-family:var(--serif);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--text);line-height:1.5}
+.perk span{display:block;margin-top:7px;font-size:12.5px;line-height:1.7;color:var(--muted)}
+/* 상담 창구 성격 안내 (카톡 · 1:1 비밀글 · 전화) */
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.way{
+  display:block;padding:15px 18px;border:1px solid var(--line);background:#fff;
+  transition:border-color .3s,transform .35s var(--ease),box-shadow .4s
+}
+.way:hover{border-color:var(--gold-line);transform:translateY(-2px);box-shadow:0 16px 32px -28px rgba(10,10,12,.85)}
+.way b{display:block;font-size:12.5px;font-weight:700;letter-spacing:.02em;color:var(--text)}
+.way span{display:block;margin-top:4px;font-size:11.5px;line-height:1.6;color:var(--muted)}
+#board{scroll-margin-top:calc(var(--nav-h) + 16px)}
 .field{margin-bottom:20px}
 .field label{
   display:block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:600
@@ -841,7 +856,8 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
   .post__lock{margin-top:3px}
   .post__answer{margin:0 16px 18px;padding:14px 16px}
   .board__write{padding-left:16px;padding-right:16px}
-  .consult__direct{justify-content:flex-start}
+  .perks{grid-template-columns:1fr}
+  .ways{grid-template-columns:1fr}
 }
 @media (max-width:1399px){
   .showcase .s7,.showcase .s9{display:none}
@@ -1119,8 +1135,8 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     </a>
   </div>
   <p class="mnav__meta">
-    서울 동작구 양녕로 253-8 · 7호선 상도역 2번 출구 앞<br>
-    매일 10:00 – 22:00 · 365일 연습실 사용 가능
+    서울 동작구 양녕로 253-8 · 7호선 상도역 2번 출구 도보 1분<br>
+    매일 10:00 – 22:00 · 365일 연습실 무료 이용
   </p>
 </div>
 
@@ -1142,7 +1158,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
       <h1>노래가 즐거워지는 순간,<em>1:1 맞춤 레슨으로 시작하세요.</em></h1>
       <p class="hero__sub">
         빅뱅·2NE1·WINNER·iKON·BLACKPINK·AKMU의 보컬을 길러낸 최원석 원장이
-        상도역 앞 SD보컬학원에서 목소리의 시작부터 무대까지 1:1로 함께합니다.
+        상도역 앞 SD보컬학원에서 1:1로 함께합니다. 비전공·초보도 목표에 맞춰 부담 없이 시작.
       </p>
       <div class="hero__cta">
         <a class="btn btn--gold" href="https://pf.kakao.com/_UXCNT/chat" target="_blank" rel="noopener">
@@ -1160,7 +1176,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
       </div>
       <div class="hero__meta">
         <span><i></i>서울 동작구 양녕로 253-8</span>
-        <span><i></i>7호선 상도역 2번 출구 앞</span>
+        <span><i></i>7호선 상도역 2번 출구 도보 1분</span>
         <span><i></i>매일 10:00 – 22:00</span>
         <span><i></i>주차 가능</span>
       </div>
@@ -1174,7 +1190,7 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
       <div class="stat"><b>2005</b><span>YG 메인 보컬 트레이너</span></div>
       <div class="stat"><b>K-POP</b><span>빅뱅 · 2NE1 · 블랙핑크 · 악뮤</span></div>
       <div class="stat"><b>1:1</b><span>전 과정 개인 레슨</span></div>
-      <div class="stat"><b>10–22</b><span>매일 365일 연습실</span></div>
+      <div class="stat"><b>10–22</b><span>365일 연습실 무료</span></div>
     </div>
   </div>
 </section>
@@ -1410,51 +1426,124 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
       </p>
     </div>
 
-    <div class="board reveal">
+    <p class="perks__label reveal">레슨 기본 제공</p>
+    <div class="perks reveal">
+      <div class="perk">
+        <b>첫 상담 발성·음정 진단</b>
+        <span>지금 목소리 상태를 먼저 확인하고, 목표에 맞는 과정을 제안합니다.</span>
+      </div>
+      <div class="perk">
+        <b>전 과정 레코딩·카메라 피드백</b>
+        <span>매 레슨을 녹음·촬영해 내 소리를 직접 듣고 고칩니다.</span>
+      </div>
+      <div class="perk">
+        <b>365일 연습실 무료 이용</b>
+        <span>레슨이 없는 날에도 매일 10:00–22:00 연습실을 쓰실 수 있습니다.</span>
+      </div>
+    </div>
+
+    <div class="board reveal" id="board">
       <div class="board__cols" aria-hidden="true">
         <span>번호</span><span>구분</span><span>제목</span><span>작성자</span><span>날짜</span>
       </div>
 
       <div class="post post--notice">
-        <button class="post__sum" type="button" aria-expanded="false" aria-controls="post1">
+        <button class="post__sum" type="button" aria-expanded="false" aria-controls="faq1">
           <span class="post__no">01</span>
           <span class="post__cat">FAQ</span>
           <span class="post__title">
             <svg class="post__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></svg>
-            음치이거나 노래가 처음인데도 배울 수 있나요?
+            처음 상담은 어떻게 진행되나요?
           </span>
           <span class="post__author">원장</span>
           <span class="post__date">FAQ</span>
         </button>
-        <div class="post__body" id="post1">
+        <div class="post__body" id="faq1">
           <div class="post__answer">
             <b>원장 답변</b>
-            <p>네. 기초 호흡과 성대 진동부터 차근차근 교정하므로 완전 초보·음치 탈출을 목표로 오시는 수강생이 많습니다.</p>
+            <p>상담은 원장과 1:1로 진행됩니다. 간단한 발성과 음정을 먼저 들어보고 지금 목소리 상태를 진단한 뒤, 목표(취미·음치 탈출·축가·오디션)에 맞는 과정과 횟수를 제안해 드립니다.</p>
           </div>
         </div>
       </div>
 
       <div class="post post--notice">
-        <button class="post__sum" type="button" aria-expanded="false" aria-controls="post2">
+        <button class="post__sum" type="button" aria-expanded="false" aria-controls="faq2">
           <span class="post__no">02</span>
           <span class="post__cat">FAQ</span>
           <span class="post__title">
             <svg class="post__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></svg>
-            위치와 주차, 연습실 이용은 어떻게 되나요?
+            수업 시간과 횟수는 어떻게 정하나요?
           </span>
           <span class="post__author">원장</span>
           <span class="post__date">FAQ</span>
         </button>
-        <div class="post__body" id="post2">
+        <div class="post__body" id="faq2">
           <div class="post__answer">
             <b>원장 답변</b>
-            <p>7호선 상도역 2번 출구 도보 1분(양녕로 253-8)입니다. 주차 가능하며 매일 10:00–22:00, 365일 연습실을 이용하실 수 있습니다.</p>
+            <p>매일 10:00–22:00 사이에서 원하시는 시간을 정합니다. 주 1회부터 원하는 만큼 정하실 수 있고, 1:1 레슨이라 일정에 맞춰 시간을 조정하기도 비교적 자유롭습니다. 횟수와 수강료는 상담에서 함께 정합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="post post--notice">
+        <button class="post__sum" type="button" aria-expanded="false" aria-controls="faq3">
+          <span class="post__no">03</span>
+          <span class="post__cat">FAQ</span>
+          <span class="post__title">
+            <svg class="post__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></svg>
+            음치이거나 노래가 처음인데도, 단기 축가도 가능한가요?
+          </span>
+          <span class="post__author">원장</span>
+          <span class="post__date">FAQ</span>
+        </button>
+        <div class="post__body" id="faq3">
+          <div class="post__answer">
+            <b>원장 답변</b>
+            <p>네. 기초 호흡과 성대 진동부터 차근차근 교정하므로 완전 초보·음치 탈출을 목표로 오시는 분이 많습니다. 결혼식 축가처럼 한 곡을 단기에 준비할 때는 곡과 날짜에 맞춰 필요한 부분만 집중적으로 다듬습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="post post--notice">
+        <button class="post__sum" type="button" aria-expanded="false" aria-controls="faq4">
+          <span class="post__no">04</span>
+          <span class="post__cat">FAQ</span>
+          <span class="post__title">
+            <svg class="post__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></svg>
+            365일 연습실은 무료로 이용할 수 있나요?
+          </span>
+          <span class="post__author">원장</span>
+          <span class="post__date">FAQ</span>
+        </button>
+        <div class="post__body" id="faq4">
+          <div class="post__answer">
+            <b>원장 답변</b>
+            <p>네. 수강생은 레슨이 없는 날에도 매일 10:00–22:00 연습실을 무료로 이용하실 수 있습니다. 이용 가능한 시간은 상담이나 카카오톡으로 미리 확인해 주세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="post post--notice">
+        <button class="post__sum" type="button" aria-expanded="false" aria-controls="faq5">
+          <span class="post__no">05</span>
+          <span class="post__cat">FAQ</span>
+          <span class="post__title">
+            <svg class="post__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></svg>
+            위치와 주차는 어떻게 되나요?
+          </span>
+          <span class="post__author">원장</span>
+          <span class="post__date">FAQ</span>
+        </button>
+        <div class="post__body" id="faq5">
+          <div class="post__answer">
+            <b>원장 답변</b>
+            <p>7호선 상도역 2번 출구 도보 1분(양녕로 253-8)입니다. 주차 가능하며, 건물 간판은 ‘SD실용음악학원’으로 되어 있습니다.</p>
           </div>
         </div>
       </div>
 
       <div class="postlist" id="postList" aria-live="polite"></div>
-      <p class="board__state" id="boardState">문의 글을 불러오는 중…</p>
+      <p class="board__state" id="boardState">최근 문의 글을 불러오고 있습니다.</p>
 
       <div class="board__foot">
         <button class="btn btn--gold" type="button" id="btnWrite">
@@ -1587,10 +1676,19 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
       </form>
     </dialog>
 
-    <div class="consult__direct reveal">
-      <span>급하신 경우</span>
-      <a href="tel:028226700">02-822-6700</a>
-      <a href="https://pf.kakao.com/_UXCNT/chat" target="_blank" rel="noopener">카카오톡 1:1 상담 열기 →</a>
+    <div class="ways reveal">
+      <a class="way" href="https://pf.kakao.com/_UXCNT/chat" target="_blank" rel="noopener">
+        <b>카카오톡 상담</b>
+        <span>가벼운 질문 · 수업 시간표 확인</span>
+      </a>
+      <a class="way" href="#board">
+        <b>1:1 비밀글</b>
+        <span>비공개 맞춤 상담 · 원장 직접 답변</span>
+      </a>
+      <a class="way" href="tel:028226700">
+        <b>전화 상담 02-822-6700</b>
+        <span>당일 방문 · 급한 문의</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1603,10 +1701,10 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
         <p class="eyebrow reveal"><span class="num">05</span>Location</p>
         <h2 class="h2 reveal d1">상도역 2번 출구,<br><em>바로 앞입니다.</em></h2>
         <ul class="info reveal d2">
-          <li><b>Address</b><span>서울특별시 동작구 양녕로 253-8<br>SD실용음악학원 (상도역 2번 출구 앞)</span></li>
+          <li><b>Address</b><span>서울특별시 동작구 양녕로 253-8<br>최원석의 SD보컬학원 (간판 표기: SD실용음악학원)</span></li>
           <li><b>Phone</b><span><a href="tel:028226700">02-822-6700</a></span></li>
           <li><b>Email</b><span><a href="mailto:cd3000xl@naver.com">cd3000xl@naver.com</a></span></li>
-          <li><b>Hours</b><span>매일 10:00 – 22:00<br>365일 연습실 사용 가능</span></li>
+          <li><b>Hours</b><span>매일 10:00 – 22:00<br>수강생 365일 연습실 무료 이용</span></li>
           <li><b>Parking</b><span>주차 가능</span></li>
           <li><b>Subway</b><span>7호선 상도역 2번 출구 도보 1분</span></li>
         </ul>
@@ -1729,8 +1827,8 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     <p>최원석의 SD보컬학원(이하 “학원”)은 문의 답변을 위해 아래와 같이 최소한의 개인정보를 수집·이용합니다.</p>
     <h4>수집 항목</h4>
     <ul>
-      <li>필수: 제목, 연락처 또는 카카오톡 ID</li>
-      <li>선택: 문의 내용</li>
+      <li>필수: 닉네임, 답변 확인용 비밀번호, 제목, 문의 내용</li>
+      <li>선택: 연락처 또는 카카오톡 ID</li>
     </ul>
     <h4>수집·이용 목적</h4>
     <ul>
@@ -1747,7 +1845,8 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
     </ul>
     <h4>전달 경로</h4>
     <ul>
-      <li>문의 내용은 메일 발송 대행 서비스(FormSubmit)를 거쳐 학원 대표 메일(cd3000xl@naver.com)로 전달됩니다.</li>
+      <li>문의 내용은 홈페이지의 1:1 비밀글 게시판에 비공개로 접수되며, 외부에 공개되지 않습니다. 원장이 직접 확인합니다.</li>
+      <li>답변은 같은 게시판에 등록되며, 글을 등록할 때 정한 비밀번호로 확인하실 수 있습니다.</li>
     </ul>
     <p style="margin-top:18px;color:#888A91;font-size:12px">※ 문의: 02-822-6700 · cd3000xl@naver.com</p>
   </div>
@@ -1975,13 +2074,13 @@ dialog.privacy::backdrop{background:rgba(8,8,10,.62);backdrop-filter:blur(3px)}
   }
 
   function bdLoadList() {
-    bdSetState('문의 글을 불러오는 중…');
+    bdSetState('최근 문의 글을 불러오고 있습니다.');
     return bdCall('list').then(function (res) {
       if (!res || !res.ok) throw new Error('list failed');
       bdRender(res.items || []);
     }).catch(function () {
       bdListEl.textContent = '';
-      bdSetState('문의 목록을 불러오지 못했습니다. 잠시 후 새로고침해 주세요.', true);
+      bdSetState('문의 목록을 불러오지 못했습니다. 잠시 후 페이지를 새로고침해 주세요.', true);
     });
   }
 
